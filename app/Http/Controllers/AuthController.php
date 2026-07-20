@@ -12,6 +12,11 @@ use App\Http\Requests\User\RegisterRequest;
 
 class AuthController extends Controller
 {
+    public function me(Request $request)
+    {
+        return new UserResource($request->user());
+    }
+
     public function register(RegisterRequest $request)
     {
         $data = $request->validated();
